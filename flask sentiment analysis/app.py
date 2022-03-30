@@ -11,11 +11,11 @@ import pickle
 # Declare a Flask app
 app = Flask(__name__) 
 
-@app.route('/')
+@app.route('/senti')
 def home():
     return render_template('website.html')
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/senti', methods=['GET', 'POST'])
 def main():
     # If a form is submitted
     if request.method == "POST":

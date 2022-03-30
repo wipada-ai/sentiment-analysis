@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Thai sentiment analysis about education in Thailand on Twitter.</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav"> <h3 style="color:#ff4f28; " font-weight="blod">#NLP #Sentiment analysis 📌</h3></div>
+    <!--------- header --------->
+    <div class="header">
+        <h2>การวิเคราะห์ความรู้สึกของข้อความ กรณีศึกษาชุดข้อมูลของทวิตเตอร์ เรื่อง การศึกษาไทย</h2>
+        <h2>Thai sentiment analysis about education in Thailand on Twitter.</h2>
+        <h2>🟩  🙂  🟦  😐  🟥  ☹️  🟨</h2>
+    </div>
+    <div class="small-container">
+        <div class="row">
+            <!--------- output --------->
+            <div class="col-2" >
+                <h1>🍁Output :</h1>
+            </div>
+            <div class="col-2" >
+                <div class="output" align="center">
+                    {% if prediction == -1%}
+                    <img src="static/img/cneg.png">
+                    <h1 style="color:#ff4f28;" font-weight="blod">Negative</h1> <!--- red --->
+
+                    {% elif prediction == 0%}
+                    <img src="static/img/cneu.png">
+                    <h1 style="color:#309eff;" font-weight="blod">Neutral</h1> <!--- blue --->
+                      
+                    {% elif prediction == 1%}
+                    <img src="static/img/cpos.png">
+                    <h1 style="color:#07db62;" font-weight="blod">Positive</h1> <!--- green ---> 
+
+                    {% endif %}
+                </div>
+            </div>
+            <!--------- input --------->
+            <div class="col-2" align="center">
+                <form id="myform" name="form", method="POST">
+                    <label for="text">📝กรุณากรอกข้อความในช่องสี่เหลี่ยม</label> 
+                    <textarea id="text" name="text" rows="13" cols="60"> </textarea><br><br>
+                    <button id="pred" type="submit" class="btn-sub" value="predict">วิเคราะห์</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
